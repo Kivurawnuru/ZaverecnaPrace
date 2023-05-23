@@ -79,7 +79,7 @@ public class MenuItemBoj extends MenuItem{
         Random rnd = new Random();
 
         try {
-            souboj(sh.getHrdinove().get(0), snp.getNepratele().get(rnd.nextInt(6)));
+            souboj(sh.getHrdinove().get(0), snp.getNepratele().get(rnd.nextInt(8)));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

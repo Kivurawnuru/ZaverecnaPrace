@@ -10,8 +10,6 @@ public class UpgradeUserInterface {
 
     public void start() throws Exception {
         SeznamHrdinu hrdina = null;
-        int skillpointy = hrdina.getHrdinove().get(0).getSkillpoint();
-        if (skillpointy >= 1) {
             try {
                 hrdina = SeznamHrdinu.nacti("postavy.txt");
                 UpgradeMenu(hrdina);
@@ -19,7 +17,6 @@ public class UpgradeUserInterface {
                 System.out.println(e.getMessage());
             }
         }
-    }
 
     private boolean exit = false;
 

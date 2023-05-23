@@ -24,10 +24,12 @@ public class UserInterface {
     private boolean exit = false;
 
     public void MainMenu(SeznamHrdinu hrdinove, SeznamNepratel nepratele) throws Exception {
+        //Misto MenuItem pouziji tridy oddedene od MenuItem
+
         Menu menu = new Menu("Vyber jednu možnost: ");
         menu.add(new MenuItemBoj("Souboj", hrdinove, nepratele));
+        //menu.add(new MenuItemVyssiBoj("Boj s těžšími nepřátely",hrdinove,nepratele));
         menu.add(new MenuItemUpgrade("Upgrade", hrdinove, nepratele));
-        //Misto MenuItem pouziji tridy oddedene od MenuItem
         menu.add(new MenuItemKonec("Konec", hrdinove, nepratele));
         while (!exit) {
             MenuItem item = menu.execute();

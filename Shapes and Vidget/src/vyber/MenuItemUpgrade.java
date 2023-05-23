@@ -1,7 +1,10 @@
 package vyber;
 
+import postava.Postava;
 import postava.SeznamHrdinu;
 import postava.SeznamNepratel;
+
+import java.util.Scanner;
 
 public class MenuItemUpgrade extends MenuItem{
 
@@ -11,8 +14,23 @@ public class MenuItemUpgrade extends MenuItem{
 
     @Override
     public boolean execute() throws Exception {
-        UpgradeUserInterface uui = new UpgradeUserInterface();
-        uui.start();
+        Scanner sc = new Scanner(System.in);
+
+        SeznamHrdinu hrdina = null;
+        int skillpointy = hrdina.getHrdinove().get(0).getSkillpoint();
+        if (skillpointy >= 1) {
+            System.out.println("Tohle jsou tvé statistiky.");
+            Postava nHrdina = hrdina.getHrdinove().get(0);
+            System.out.println(nHrdina);
+            System.out.println("Chceš pokračovat a vnylepšit si statistiky?");
+            System.out.println("Ano/Ne");
+            System.out.println("V případě špatné odpovědi budeš vrácen do základní nabídky. ");
+            String odpoved = sc.nextLine();
+            if(odpoved.matches("anoANO")){
+                UpgradeUserInterface uui = new UpgradeUserInterface();
+                uui.start();
+            }
+        }
         return false;
     }
 }

@@ -1,5 +1,6 @@
 package postava;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public abstract class Postava {
@@ -121,56 +122,61 @@ public abstract class Postava {
         return null;
     }
 
-   public static Postava vytvorNahodnehoNepritele() throws Exception {
+   public static Postava vytvorNahodnehoNepritele(int levelHrdiny) throws Exception {
         Random rnd = new Random();
-        int trida = rnd.nextInt(3)+1;
-        String jmeno = SeznamNepratel.nacti("Shapes and Vidget/nepratele.txt").getNepratele().get(rnd.nextInt(6)).getJmeno();
-        int level = rnd.nextInt(7)+1;
+        int trida = rnd.nextInt(4)+1;
+        ArrayList<Postava> nepratele = SeznamNepratel.nacti("nepratele.txt").getNepratele();
+        String jmeno = nepratele.get(rnd.nextInt(8)).getJmeno();
+
+       int zaklad = levelHrdiny/2;
+
+        int level = rnd.nextInt(zaklad+3)+1;
         double  sila;
         double inteligence;
         double obratnost;
         double odolnost;
         int expy;
         int skillpoint = 0;
-        String Srasa = SeznamNepratel.nacti("Shapes and Vidget/nepratele.txt").getNepratele().get(rnd.nextInt(6)).rasa.getRasa();
+        String Srasa = nepratele.get(rnd.nextInt(8)).rasa.getRasa();
         Srasa = Srasa.trim();
         //System.out.println("Srasa: " + Srasa);
         IRasa rasa = getRasa(Srasa);
         double zivoty;
 
+
         switch(trida){
             case 1:
-                sila = rnd.nextInt(6)+2;
-                inteligence = rnd.nextInt(4)+1;
-                obratnost = rnd.nextInt(5)+1;
-                odolnost = rnd.nextInt(5)+1;
+                sila = rnd.nextInt(zaklad+4)+2;
+                inteligence = rnd.nextInt(zaklad+2)+1;
+                obratnost = rnd.nextInt(zaklad+3)+1;
+                odolnost = rnd.nextInt(zaklad+3)+1;
                 expy = rnd.nextInt(35)*10;
                 zivoty = 1;
                 return new Valecnik(jmeno,level,sila,inteligence,obratnost,odolnost,expy, rasa, zivoty, skillpoint);
 
             case 2:
-                sila = rnd.nextInt(4)+1;
-                inteligence = rnd.nextInt(6)+2;
-                obratnost = rnd.nextInt(5)+1;
-                odolnost = rnd.nextInt(3)+1;
+                sila = rnd.nextInt(zaklad+2)+1;
+                inteligence = rnd.nextInt(zaklad+4)+2;
+                obratnost = rnd.nextInt(zaklad+3)+1;
+                odolnost = rnd.nextInt(zaklad+1)+1;
                 expy = rnd.nextInt(35)*10;
                 zivoty = 1;
                 return new Mag(jmeno,level,sila,inteligence,obratnost,odolnost,expy, rasa, zivoty, skillpoint);
 
             case 3:
-                sila = rnd.nextInt(3)+1;
-                inteligence = rnd.nextInt(4)+1;
-                obratnost = rnd.nextInt(6)+2;
-                odolnost = rnd.nextInt(5)+1;
+                sila = rnd.nextInt(zaklad+1)+1;
+                inteligence = rnd.nextInt(zaklad+2)+1;
+                obratnost = rnd.nextInt(zaklad+4)+2;
+                odolnost = rnd.nextInt(zaklad+3)+1;
                 expy = rnd.nextInt(35)*10;
                 zivoty = 1;
                 return new Pruzkumnik(jmeno,level,sila,inteligence,obratnost,odolnost,expy, rasa, zivoty, skillpoint);
 
             case 4:
-                sila = rnd.nextInt(4)+1;
-                inteligence = rnd.nextInt(4)+1;
-                obratnost = rnd.nextInt(6)+2;
-                odolnost = rnd.nextInt(5)+1;
+                sila = rnd.nextInt(zaklad+2)+1;
+                inteligence = rnd.nextInt(zaklad+2)+1;
+                obratnost = rnd.nextInt(zaklad+4)+2;
+                odolnost = rnd.nextInt(zaklad+3)+1;
                 expy = rnd.nextInt(35)*10;
                 zivoty = 1;
                 return new Mnich(jmeno,level,sila,inteligence,obratnost,odolnost,expy, rasa, zivoty, skillpoint);
@@ -192,6 +198,7 @@ public abstract class Postava {
             level++;
             expy -= 100*level;
             zivoty = level * 10;
+            skillpoint = skillpoint + 2;
         }
     }
 
@@ -213,11 +220,21 @@ public abstract class Postava {
         try{
             csv = csv.trim();
             String[] radek = csv.split(";");
-            Postava hrdina = Postava.vytvorPostavu(Integer.parseInt(radek[0]),radek[1], Integer.parseInt(radek[2]), Double.parseDouble(radek[3]), Integer.parseInt(radek[4]), Integer.parseInt(radek[5]), Integer.parseInt(radek[6]), Integer.parseInt(radek[7]), getRasa(radek[8]), Double.parseDouble(radek[9]), Integer.parseInt(radek[10]));
+            Postava hrdina = Postava.vytvorPostavu(Integer.parseInt(radek[0]),
+                    radek[1],
+                    Integer.parseInt(radek[2]),
+                    Double.parseDouble(radek[3]),
+                    Double.parseDouble(radek[4]),
+                    Double.parseDouble(radek[5]),
+                    Double.parseDouble(radek[6]),
+                    Integer.parseInt(radek[7]),
+                    getRasa(radek[8]),
+                    Double.parseDouble(radek[9]),
+                    Integer.parseInt(radek[10]));
             return hrdina;
         }catch (Exception e){
             throw new Exception();
-        }
+    }
     }
 
     public String doCsv() {

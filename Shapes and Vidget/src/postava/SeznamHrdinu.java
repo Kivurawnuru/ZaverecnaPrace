@@ -7,6 +7,7 @@ package postava;
 public class SeznamHrdinu {
     ArrayList<Postava> hrdinove = new ArrayList<>();
 
+
     public ArrayList<Postava> getHrdinove() {
         return hrdinove;
     }
