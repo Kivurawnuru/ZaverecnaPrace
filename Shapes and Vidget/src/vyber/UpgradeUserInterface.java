@@ -10,14 +10,15 @@ public class UpgradeUserInterface {
 
     public void start() throws Exception {
         SeznamHrdinu hrdina = null;
-
-        try {
-            hrdina = SeznamHrdinu.nacti("postavy.txt");
-            UpgradeMenu(hrdina);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+        int skillpointy = hrdina.getHrdinove().get(0).getSkillpoint();
+        if (skillpointy >= 1) {
+            try {
+                hrdina = SeznamHrdinu.nacti("postavy.txt");
+                UpgradeMenu(hrdina);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
         }
-        System.out.println("KONEC");
     }
 
     private boolean exit = false;
@@ -33,9 +34,12 @@ public class UpgradeUserInterface {
             System.out.println(e);
         }
 
-        MenuUpgrade upmenu = new MenuUpgrade("Vyber jakou chopnost chceš vylepšit.");
+        MenuUpgrade upmenu = new MenuUpgrade("Vyber jakou schopnost chceš vylepšit.");
         upmenu.add(new UpgradeItemForce("Upgrade síly", hrdina));
-
+        upmenu.add(new UpgradeItemInteligence("Upgrade Inteligence", hrdina));
+        upmenu.add(new UpgradeItemDexterity("Upgrade Obratnosti", hrdina));
+        upmenu.add(new UpgradeItemEndurance("Upgrade odolnosti", hrdina));
+        upmenu.add(new UpgradeItemEnd("Zpátky", hrdina));
 
         while (!exit) {
             UpgradeItem upitem = upmenu.execute();

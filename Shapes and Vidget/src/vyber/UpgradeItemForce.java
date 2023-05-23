@@ -14,18 +14,13 @@ public class UpgradeItemForce extends UpgradeItem {
         Scanner sc = new Scanner(System.in);
         int skillpointy = hrdina.getHrdinove().get(0).getSkillpoint();
 
-
         System.out.println("Aktuálně máš " + skillpointy + " volných skillpointů.");
-        if (skillpointy <= 0) {
-            System.out.println("Aktuáně nemáš žádné skillpointy, které bys mohl použít.");
-            return false;
-        } else {
             int sprOdpoved = 0;
             while (sprOdpoved == 0) {
-                System.out.println("Kolikrát ji chceš vylepšit.");
-                int kolikrat = sc.nextInt();
-                if (kolikrat > 0 && kolikrat <= skillpointy) {
-                    for (int i = 0; i < kolikrat; i++) {
+                System.out.println("Kolik skillpointů chceš použít ke zvíšení síly.");
+                int olik = sc.nextInt();
+                if (olik > 0 && olik <= skillpointy) {
+                    for (int i = 0; i < olik; i++) {
                         double zviseniSily = hrdina.getHrdinove().get(0).getSila();
                         zviseniSily = zviseniSily + 0.5;
                         hrdina.getHrdinove().get(0).setSila(zviseniSily);
@@ -34,11 +29,7 @@ public class UpgradeItemForce extends UpgradeItem {
                     }
                     sprOdpoved++;
                 }
-
             }
-
-        }
-
         return false;
     }
 }

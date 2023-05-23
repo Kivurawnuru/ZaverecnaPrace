@@ -30,7 +30,7 @@ public class Menu {
 
     public MenuItem selection(int userInput) {
         int index = userInput - 1;
-        if (index < 0 || index >= menuItems.size()) {
+        if (index < 0 || index > menuItems.size()) {
             System.out.println("Index " + userInput + " is not valid input");
             return null;
         }
