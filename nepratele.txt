@@ -1,7 +1,8 @@
 1;Zbojník;4;5;1;3;1;100;Clovek;40;0
 3;Ninja;3;2;1;4;3;230;Trpaslík;30;0
 2;Elendiel;5;1;5;3;1;180;Elf;50;0
-2;čenokněžník;2;1;4;3;2;140;Clovek;20;0
+4;Shen;6;5;3;4;4;560;Temný Elf;60;0
+2;čnokněžník;2;1;4;3;2;140;Clovek;20;0
 1;Guhenzval;4;4;1;3;2;340;Troll;40;0
 3;Keny;3;2;1;4;3;250;Nemrtvý;30;0
 4;Gladiátor;5;4;2;3;1;320;Lionin;40;0
