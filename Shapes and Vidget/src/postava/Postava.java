@@ -13,7 +13,6 @@ public abstract class Postava {
     protected int expy;
     protected IRasa rasa;
     protected double zivoty;
-
     protected int skillpoint;
 
     public double getSila(){

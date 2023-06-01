@@ -16,11 +16,10 @@ public class MenuItemUpgrade extends MenuItem{
     public boolean execute() throws Exception {
         Scanner sc = new Scanner(System.in);
 
-        SeznamHrdinu hrdina = null;
-        int skillpointy = hrdina.getHrdinove().get(0).getSkillpoint();
+        int skillpointy = hrdinove.getHrdinove().get(0).getSkillpoint();
         if (skillpointy >= 1) {
             System.out.println("Tohle jsou tvé statistiky.");
-            Postava nHrdina = hrdina.getHrdinove().get(0);
+            Postava nHrdina = hrdinove.getHrdinove().get(0);
             System.out.println(nHrdina);
             System.out.println("Chceš pokračovat a vnylepšit si statistiky?");
             System.out.println("Ano/Ne");
@@ -28,7 +27,7 @@ public class MenuItemUpgrade extends MenuItem{
             String odpoved = sc.nextLine();
             if(odpoved.matches("anoANO")){
                 UpgradeUserInterface uui = new UpgradeUserInterface();
-                uui.start();
+                uui.start(hrdinove);
             }
         }
         return false;

@@ -27,6 +27,7 @@ public class UserInterface {
         //Misto MenuItem pouziji tridy oddedene od MenuItem
 
         Menu menu = new Menu("Vyber jednu možnost: ");
+        menu.add(new MenuItemVypisPostavy("Výpis postavy",hrdinove,nepratele));
         menu.add(new MenuItemBoj("Souboj", hrdinove, nepratele));
         //menu.add(new MenuItemVyssiBoj("Boj s těžšími nepřátely",hrdinove,nepratele));
         menu.add(new MenuItemUpgrade("Upgrade", hrdinove, nepratele));

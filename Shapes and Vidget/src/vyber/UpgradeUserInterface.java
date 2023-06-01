@@ -6,21 +6,14 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class UpgradeUserInterface {
+public class
+UpgradeUserInterface {
 
-    public void start() throws Exception {
-        SeznamHrdinu hrdina = null;
-            try {
-                hrdina = SeznamHrdinu.nacti("postavy.txt");
-                UpgradeMenu(hrdina);
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
-            }
-        }
-
+    public void start(SeznamHrdinu hrdinove) throws Exception {
+        SeznamHrdinu UpHrdina = hrdinove;
+    }
     private boolean exit = false;
-
-    public void UpgradeMenu(SeznamHrdinu hrdina) {
+        public void UpgradeMenu(SeznamHrdinu UpHrdina){
 
         try (BufferedReader ctenar = new BufferedReader(new FileReader("PravidlaProUpgrade.txt"))) {
             String radek = null;
@@ -32,11 +25,12 @@ public class UpgradeUserInterface {
         }
 
         MenuUpgrade upmenu = new MenuUpgrade("Vyber jakou schopnost chceš vylepšit.");
-        upmenu.add(new UpgradeItemForce("Upgrade síly", hrdina));
-        upmenu.add(new UpgradeItemInteligence("Upgrade Inteligence", hrdina));
-        upmenu.add(new UpgradeItemDexterity("Upgrade Obratnosti", hrdina));
-        upmenu.add(new UpgradeItemEndurance("Upgrade odolnosti", hrdina));
-        upmenu.add(new UpgradeItemEnd("Zpátky", hrdina));
+        upmenu.add(new UpgradeItemVypisPostavy("Výpis postavy",UpHrdina));
+        upmenu.add(new UpgradeItemForce("Upgrade síly", UpHrdina));
+        upmenu.add(new UpgradeItemInteligence("Upgrade Inteligence", UpHrdina));
+        upmenu.add(new UpgradeItemDexterity("Upgrade Obratnosti", UpHrdina));
+        upmenu.add(new UpgradeItemEndurance("Upgrade odolnosti", UpHrdina));
+        upmenu.add(new UpgradeItemEnd("Zpátky", UpHrdina));
 
         while (!exit) {
             UpgradeItem upitem = upmenu.execute();

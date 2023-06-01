@@ -23,7 +23,8 @@ public class MenuItemBoj extends MenuItem{
         System.out.println();
         System.out.println("Po každém kole zmáčkněte ENTER");
         System.out.println("------------------------------------------------------------------------------------");
-        sc.nextLine();
+
+        Thread.sleep(600);
 
         while(hrdinaD ==1 && nepritelD ==1){
 
@@ -39,7 +40,7 @@ public class MenuItemBoj extends MenuItem{
                 nepritel.setZivoty(odecetOdNepr);
                 System.out.println("Hrdina "+ hrdina.getJmeno() +" dává "+ nepritel.getJmeno()+"ovi dmg " + dmgH);
 
-                sc.nextLine();
+                Thread.sleep(600);
 
                 if(nepritel.getZivoty() <= 0){
                     System.out.println("Nepritel je mrtvý vyhrál hrdina.");
@@ -54,7 +55,7 @@ public class MenuItemBoj extends MenuItem{
                     double odecrtOdHrd = hrdina.getZivoty() - dmgN;
                     hrdina.setZivoty(odecrtOdHrd);
                     System.out.println("Nepritel "+ nepritel.getJmeno() +" dává "+ hrdina.getJmeno()+"ovi dmg " + dmgN);
-                    sc.nextLine();
+                    Thread.sleep(600);
                 }
             }
         }
@@ -63,20 +64,10 @@ public class MenuItemBoj extends MenuItem{
 
     @Override
     public boolean execute() {
-        SeznamHrdinu sh = null;
-        try {
-            sh = SeznamHrdinu.nacti("postavy.txt");
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-        SeznamNepratel snp = null;
-        try {
-            snp = SeznamNepratel.nacti("nepratele.txt");
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-
         Random rnd = new Random();
+
+        SeznamHrdinu sh = hrdinove;
+        SeznamNepratel snp = nepratele;
 
         try {
             souboj(sh.getHrdinove().get(0), snp.getNepratele().get(rnd.nextInt(8)));
