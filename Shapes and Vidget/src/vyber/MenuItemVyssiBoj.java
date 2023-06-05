@@ -15,15 +15,27 @@ public class MenuItemVyssiBoj extends MenuItem{
     public MenuItemVyssiBoj(String description, SeznamHrdinu hrdinove, SeznamNepratel nepratele) {
         super(description, hrdinove, nepratele);
     }
+
+    /**
+     * Method that formate damage and health double number
+     * @throws Exception
+     */
     private static DecimalFormat getDecimalFormat() throws Exception {
         DecimalFormatSymbols symbols = new DecimalFormatSymbols();
-        DecimalFormat df = new DecimalFormat("###.#", symbols);
+        DecimalFormat df = new DecimalFormat("### ###.#", symbols);
         symbols.setGroupingSeparator(' ');
         df.setDecimalFormatSymbols(symbols);
         df.setGroupingSize(3);
         df.setGroupingUsed(true);
         return df;
     }
+
+    /**
+     * Static Method that shows player fight between hero and his enemy
+     * @param hrdina
+     * @param nepritel
+     * @throws Exception
+     */
     public static void souboj(Postava hrdina, Postava nepritel) throws Exception{
 
         try (BufferedReader ctenar = new BufferedReader(new FileReader("PravidlaProChallengeMode.txt"))) {
@@ -37,7 +49,6 @@ public class MenuItemVyssiBoj extends MenuItem{
         Thread.sleep(8000);
 
         double zalohaHrdinyZ = hrdina.getZivoty();
-        double zalohaNepriteleZ = nepritel.getZivoty();
 
         DecimalFormat df = getDecimalFormat();
 
@@ -60,7 +71,6 @@ public class MenuItemVyssiBoj extends MenuItem{
                 nepritelD++;
 
                 hrdina.setZivoty(zalohaHrdinyZ);
-                nepritel.setZivoty(zalohaNepriteleZ);
 
                 hrdina.vyhraCHM(nepritel.getLevel(),hrdina.getLevel());
 
@@ -79,7 +89,6 @@ public class MenuItemVyssiBoj extends MenuItem{
                 System.out.println("Hrdina je mrtvý vyhrál nepřítel.");
                 hrdinaD++;
                 hrdina.setZivoty(zalohaHrdinyZ);
-                nepritel.setZivoty(zalohaNepriteleZ);
 
                 }else{
                     System.out.println();
