@@ -21,15 +21,20 @@ public class MenuItemUpgrade extends MenuItem{
             System.out.println("Tohle jsou tvé statistiky.");
             Postava nHrdina = hrdinove.getHrdinove().get(0);
             System.out.println(nHrdina);
-            System.out.println("Chceš pokračovat a vnylepšit si statistiky?");
+            System.out.println("Opravdu chceš pokračovat a vylepšit si statistiky?");
             System.out.println("Ano/Ne");
             System.out.println("V případě špatné odpovědi budeš vrácen do základní nabídky. ");
             String odpoved = sc.nextLine();
-            if(odpoved.matches("anoANO")){
+            if(odpoved.matches("^[anoANO]{3}")){
                 UpgradeUserInterface uui = new UpgradeUserInterface();
                 uui.start(hrdinove);
+            } else if (odpoved.matches("^[neNE]{2}")) {
+                System.out.println("Jak si přeješ.");
+                return false;
             }
-        }
-        return false;
+        }else{
+            System.out.println("Nemáš dostatek skillpointů");
+        }return false;
+
     }
 }

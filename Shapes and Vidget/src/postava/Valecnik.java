@@ -9,7 +9,7 @@ public class Valecnik extends Postava{
         return 1;
     }
     public double utociNa(Postava obrance){
-        return (3* getSila() * rasa.stesti()) - getObrana(obrance);
+        return (3* getSilaR() * rasa.stesti()) - getObrana(obrance);
     }
     public String getPovolani(){
         return "Valecnik";

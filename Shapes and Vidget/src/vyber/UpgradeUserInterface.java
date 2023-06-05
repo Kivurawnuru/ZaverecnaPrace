@@ -11,6 +11,7 @@ UpgradeUserInterface {
 
     public void start(SeznamHrdinu hrdinove) throws Exception {
         SeznamHrdinu UpHrdina = hrdinove;
+        UpgradeMenu(hrdinove);
     }
     private boolean exit = false;
         public void UpgradeMenu(SeznamHrdinu UpHrdina){
@@ -23,6 +24,7 @@ UpgradeUserInterface {
         } catch (IOException e) {
             System.out.println(e);
         }
+
 
         MenuUpgrade upmenu = new MenuUpgrade("Vyber jakou schopnost chceš vylepšit.");
         upmenu.add(new UpgradeItemVypisPostavy("Výpis postavy",UpHrdina));

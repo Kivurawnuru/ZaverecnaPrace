@@ -15,17 +15,30 @@ public abstract class Postava {
     protected double zivoty;
     protected int skillpoint;
 
-    public double getSila(){
+    public double getSilaR(){
         return sila * rasa.bonusSila();
     }
-    public double getInteligence(){
+    public double getInteligenceR(){
         return inteligence * rasa.bonusInteligence();
     }
-    public double getObratnost(){
+    public double getObratnostR(){
         return obratnost * rasa.bonusObratnosti();
     }
-    public double getOdolnost(){
+    public double getOdolnostR(){
         return odolnost * rasa.bonusOdolnost();
+    }
+
+    public double getSila(){
+        return sila;
+    }
+    public double getInteligence(){
+        return inteligence;
+    }
+    public double getObratnost(){
+        return obratnost;
+    }
+    public double getOdolnost(){
+        return odolnost;
     }
     public String getJmeno() {
         return jmeno;
@@ -127,7 +140,7 @@ public abstract class Postava {
         ArrayList<Postava> nepratele = SeznamNepratel.nacti("nepratele.txt").getNepratele();
         String jmeno = nepratele.get(rnd.nextInt(8)).getJmeno();
 
-       int zaklad = levelHrdiny/2;
+       int zaklad = levelHrdiny;
 
         int level = rnd.nextInt(zaklad+3)+1;
         double  sila;
@@ -188,8 +201,21 @@ public abstract class Postava {
         return getOdolnost() + protivnik.getVlastnost(this);
     }
 
-    public void vyhra(int levelNepritele){
-         expy += 10 * levelNepritele;
+    public void vyhra(int levelNepritele, int levelHrdiny){
+        if(levelNepritele > levelHrdiny) {
+           int bonus = levelNepritele - levelHrdiny;
+            expy = 10 * bonus * levelNepritele;
+        }else{
+            expy += 20 * levelNepritele;
+        }
+    }
+    public void vyhraCHM(int levelNepritele, int levelHrdiny){
+        if(levelNepritele > levelHrdiny) {
+            int bonus = levelNepritele - levelHrdiny;
+            expy = 20 * bonus * levelNepritele;
+        }else{
+            expy += 30 * levelNepritele;
+        }
     }
 
     public void levelUp(){

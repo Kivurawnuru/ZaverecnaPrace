@@ -9,7 +9,7 @@ public class Pruzkumnik extends Postava {
         return 3;
     }
     public double utociNa(Postava obrance){
-        return ( 3* getObratnost() * rasa.stesti()) - getObrana(obrance);
+        return ( 3* getObratnostR() * rasa.stesti()) - getObrana(obrance);
     }
     public String getPovolani(){
         return "Valecnik";

@@ -16,6 +16,7 @@ public class UpgradeItemForce extends UpgradeItem {
 
         System.out.println("Aktuálně máš " + skillpointy + " volných skillpointů.");
             int sprOdpoved = 0;
+        if(skillpointy >= 1) {
             while (sprOdpoved == 0) {
                 System.out.println("Kolik skillpointů chceš použít ke zvíšení síly.");
                 int olik = sc.nextInt();
@@ -30,6 +31,9 @@ public class UpgradeItemForce extends UpgradeItem {
                     sprOdpoved++;
                 }
             }
+        }else {
+            System.out.println("Nemáš žádné skill pointy vrať se do hlavní nabídky");
+        }
         return false;
     }
 }

@@ -35,4 +35,8 @@ public class Lionin implements IRasa{
     public String getRasa() {
         return "Lionin";
     }
+
+    public String toString() {
+        return getRasa();
+    }
 }

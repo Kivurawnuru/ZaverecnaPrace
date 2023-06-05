@@ -10,7 +10,7 @@ public class Mag extends Postava {
         return 2;
     }
     public double utociNa(Postava obrance) {
-        return (3 * getInteligence() * rasa.stesti()) - getObrana(obrance);
+        return (3 * getInteligenceR() * rasa.stesti()) - getObrana(obrance);
     }
     public String getPovolani() {
         return "Mag";

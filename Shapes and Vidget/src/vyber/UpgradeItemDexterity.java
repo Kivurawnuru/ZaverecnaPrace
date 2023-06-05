@@ -16,19 +16,23 @@ public class UpgradeItemDexterity extends UpgradeItem {
 
         System.out.println("Aktuálně máš " + skillpointy + " volných skillpointů.");
         int sprOdpoved = 0;
-        while (sprOdpoved == 0) {
-            System.out.println("Kolik skillpointů chceš použít ke zvíšení obratnosti.");
-            int kolik = sc.nextInt();
-            if (kolik > 0 && kolik <= skillpointy) {
-                for (int i = 0; i < kolik; i++) {
-                    double zviseniObratnosti = hrdina.getHrdinove().get(0).getObratnost();
-                    zviseniObratnosti = zviseniObratnosti + 0.5;
-                    hrdina.getHrdinove().get(0).setObratnost(zviseniObratnosti);
-                    skillpointy--;
-                    hrdina.getHrdinove().get(0).setSkillpoint(skillpointy);
+        if(skillpointy >= 1) {
+            while (sprOdpoved == 0) {
+                System.out.println("Kolik skillpointů chceš použít ke zvíšení obratnosti.");
+                int kolik = sc.nextInt();
+                if (kolik > 0 && kolik <= skillpointy) {
+                    for (int i = 0; i < kolik; i++) {
+                        double zviseniObratnosti = hrdina.getHrdinove().get(0).getObratnost();
+                        zviseniObratnosti = zviseniObratnosti + 0.5;
+                        hrdina.getHrdinove().get(0).setObratnost(zviseniObratnosti);
+                        skillpointy--;
+                        hrdina.getHrdinove().get(0).setSkillpoint(skillpointy);
+                    }
+                    sprOdpoved++;
                 }
-                sprOdpoved++;
             }
+        }else{
+            System.out.println("Nemáš žádné skill pointy vrať se do hlavní nabídky");
         }
         return false;
     }

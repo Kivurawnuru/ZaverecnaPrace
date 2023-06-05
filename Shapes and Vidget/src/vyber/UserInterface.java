@@ -29,7 +29,7 @@ public class UserInterface {
         Menu menu = new Menu("Vyber jednu možnost: ");
         menu.add(new MenuItemVypisPostavy("Výpis postavy",hrdinove,nepratele));
         menu.add(new MenuItemBoj("Souboj", hrdinove, nepratele));
-        //menu.add(new MenuItemVyssiBoj("Boj s těžšími nepřátely",hrdinove,nepratele));
+        menu.add(new MenuItemVyssiBoj("Challenge Mode",hrdinove,nepratele));
         menu.add(new MenuItemUpgrade("Upgrade", hrdinove, nepratele));
         menu.add(new MenuItemKonec("Konec", hrdinove, nepratele));
         while (!exit) {

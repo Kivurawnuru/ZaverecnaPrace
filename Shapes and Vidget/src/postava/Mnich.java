@@ -3,7 +3,7 @@ package postava;
 public class Mnich extends Postava {
 
     public Mnich(String jmeno, int level, double sila, double inteligence, double obratnost, double odolnost, int expy, IRasa rasa, double zivoty, int skillpoint) {
-        super(jmeno, level, sila, inteligence, obratnost, odolnost, expy, zivoty,skillpoint);
+        super(jmeno, level, sila, inteligence, obratnost, odolnost, expy , rasa, zivoty,skillpoint);
     }
 
     @Override
@@ -13,7 +13,7 @@ public class Mnich extends Postava {
 
     @Override
     public double utociNa(Postava obrance) {
-        return (sila + (obratnost*2))* rasa.stesti() - getObrana(obrance);
+        return (getSilaR() + (getObratnostR()*2))* rasa.stesti() - getObrana(obrance);
 
     }
     @Override
