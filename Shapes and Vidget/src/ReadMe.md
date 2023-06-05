@@ -34,7 +34,8 @@ takzvaných ,,skillpointů''.Jednotlivé upgrady fungují ve for cyklu. Vždy p�
 možnoisti výběru hráče program zkontroluje jestli má hráč dostatek skillpointů, v případě
 že má tak ho program pusí dál a nechá mu vzbrat kolik chce použít vzkušenostních bodů na 
 upgrade jednotlivých atributů. Jeden skillpoint hráči zvíší atribut o 0,5 bodu. Po zvíšení
-artibutu se hráči odečte jeden skillpoint.
+artibutu se hráči odečte jeden skillpoint. Má zde také možnost jako vypsání postavy a 
+možnost zpět která navrátí hráče do hlavního Interfacu.
 ### Konec
 Možnost konec hráči ukončí hru a uloží stávající hodnoty jeho postavy. Pomocí 
 BufferedWriteru přepíšeme hodnoty uživatelovi postavy na hodnoty, které zvýšil v průběhu 
