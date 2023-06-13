@@ -1,4 +1,4 @@
-import vyber.UserInterface;
+import Menu.MainMenu.UserInterface;
 
 public class Main {
 

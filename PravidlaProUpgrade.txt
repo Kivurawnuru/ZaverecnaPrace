@@ -1,7 +1,0 @@
-________________________________________________________________
-|Zde si můžeš pomocí zkšeností vylepšit tvoje                  |
-|schopnosti jako sílu, obratnost atd.                          |
-|Můžeš odtud odejít přes vybranou možnost "zpátky"             |
-|a nebo tě program vrátí do hlavní nabídky po                  |
-|vyčerpání všech tvých vzkušenosí.                             |
-|______________________________________________________________|
